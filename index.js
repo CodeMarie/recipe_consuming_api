@@ -21,7 +21,6 @@ const recipe = foodApiResponseAsJson.searchResults[0].results[0]
 res.render('productPage', recipe)
 });
 
-
 app.get("/", (req, res) => {
         res.sendFile(path.join(__dirname + "/index.html"));
     });
