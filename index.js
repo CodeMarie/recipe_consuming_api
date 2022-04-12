@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require ('path')
 const app = express();
-const port = 8050;
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 require("dotenv").config();
 
@@ -33,7 +32,11 @@ app.get("*", (req, res) => {
     res.status(404).render("error", {url: req.url});
 });
 
-//only required for local testing
-// app.listen(port, () => {
-//     console.log(`Listening on port ${port}`);
-// });
+
+app.listen(process.env.PORT);
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port);
