@@ -33,7 +33,7 @@ app.get("*", (req, res) => {
     res.status(404).render("error", {url: req.url});
 });
 
-
-app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
-});
+//only required for local testing
+// app.listen(port, () => {
+//     console.log(`Listening on port ${port}`);
+// });
